@@ -141,6 +141,14 @@ git = 'https://github.com/paritytech/substrate.git'
 package = 'sr-version'
 rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
 
+[dependencies.erc721]
+path = "../srml/erc721"
+default-features = false
+
+[dependencies.sdr]
+path = "../srml/sdr"
+default-features = false
+
 [package]
 authors = ['Parity Technologies <admin@parity.io>']
 edition = '2018'

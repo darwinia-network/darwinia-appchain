@@ -1,4 +1,6 @@
+#![cfg_attr(not(feature = "std"), no_std)]
 /// sample runtime module implementing the ERC20 interface
+
 
 use rstd::prelude::*;
 use parity_codec::Codec;

@@ -1,5 +1,6 @@
 // Port of the OpenZeppelin ERC721 and ERC721Enumerable contracts to Parity Substrate
 // https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/token/ERC721
+#![cfg_attr(not(feature = "std"), no_std)]
 
 use parity_codec::Encode;
 use support::{dispatch::Result, StorageMap, Parameter, StorageValue, decl_storage, decl_module, decl_event, ensure};

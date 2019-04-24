@@ -56,9 +56,12 @@ pub type BlockNumber = u64;
 pub type Nonce = u64;
 
 /// Used for the module template in `./erc20.rs`
-mod erc20;
-mod erc721;
-mod auction;
+//mod erc20;
+#[cfg(any(feature = "std", test))]
+pub use erc721;
+pub use sdr;
+//mod erc721;
+//mod auction;
 
 /// Opaque types. These are used by the CLI to instantiate machinery that don't need to know
 /// the specifics of the runtime. They can then be made to be agnostic over specific formats
@@ -190,19 +193,25 @@ impl sudo::Trait for Runtime {
 }
 
 /// Used for the module erc20 in `./erc20.rs`
-impl erc20::Trait for Runtime { 
+//impl erc20::Trait for Runtime {
+//	type Event = Event;
+//
+//	type TokenBalance = u128;
+//}
+
+//impl erc721::Trait for Runtime {
+//	type Event = Event;
+//}
+
+impl sdr::Trait for Runtime {
 	type Event = Event;
 
 	type TokenBalance = u128;
 }
 
-impl erc721::Trait for Runtime { 
-	type Event = Event;
-}
-
-impl auction::Trait for Runtime {
-	type Event = Event;
-}
+//impl auction::Trait for Runtime {
+//	type Event = Event;
+//}
 
 construct_runtime!(
 	pub enum Runtime with Log(InternalLog: DigestItem<Hash, AuthorityId, AuthoritySignature>) where
@@ -218,9 +227,10 @@ construct_runtime!(
 		Balances: balances,
 		Sudo: sudo,
 		// Used for the module template in `./template.rs`
-		Erc721: erc721::{Module, Call, Storage, Event<T>},
-		Erc20: erc20::{Module, Call, Storage, Event<T>, Config<T>},
-		Auction: auction::{Module, Call, Storage, Event<T>},
+//		Erc721: erc721::{Module, Call, Storage, Event<T>},
+//		Erc20: erc20::{Module, Call, Storage, Event<T>, Config<T>},
+//		Auction: auction::{Module, Call, Storage, Event<T>},
+		Sdr: sdr::{Module, Call, Storage, Event<T>},
 	}
 );
 
