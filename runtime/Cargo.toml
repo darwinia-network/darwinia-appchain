@@ -21,54 +21,62 @@ std = [
     'safe-mix/std',
     'consensus-aura/std',
     'offchain-primitives/std',
+    "consensus_authorities/std",
+    "sdr/std"
 ]
 [dependencies.aura]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-aura'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
+
+[dependencies.consensus_authorities]
+default_features = false
+git = 'https://github.com/paritytech/substrate.git'
+package = 'substrate-consensus-authorities'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.balances]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-balances'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.client]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'substrate-client'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.consensus]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-consensus'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.consensus-aura]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'substrate-consensus-aura-primitives'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.executive]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-executive'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.indices]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-indices'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.offchain-primitives]
 default-features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'substrate-offchain-primitives'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.parity-codec]
 default-features = false
@@ -79,25 +87,25 @@ version = '3.2'
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'substrate-primitives'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.rstd]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'sr-std'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.runtime-io]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'sr-io'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.runtime-primitives]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'sr-primitives'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.safe-mix]
 default-features = false
@@ -115,31 +123,31 @@ version = '1.0'
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-sudo'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.support]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-support'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.system]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-system'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.timestamp]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-timestamp'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.version]
 default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'sr-version'
-rev = 'c767d102545b8507ced4331df89bf5c2640bfb1e'
+rev = 'ba16f60be235d863781d20fdbd60bba8b93a6112'
 
 [dependencies.erc721]
 path = "../srml/erc721"

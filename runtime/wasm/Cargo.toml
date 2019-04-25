@@ -6,16 +6,22 @@ version = '0.9.0'
 
 [workspace]
 members = []
+
+
+[lib]
+name = "node_runtime"
+crate-type = ['cdylib']
+
 [dependencies.node-template-runtime]
 default-features = false
 path = '..'
 
-[lib]
-crate-type = ['cdylib']
-
 [features]
 default = []
-std = ['node-template-runtime/std']
+std = [
+	"node-template-runtime/std",
+]
+
 [profile.release]
 lto = true
 panic = 'abort'

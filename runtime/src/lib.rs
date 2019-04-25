@@ -252,22 +252,23 @@ pub type CheckedExtrinsic = generic::CheckedExtrinsic<AccountId, Nonce, Call>;
 pub type Executive = executive::Executive<Runtime, Block, Context, Balances, AllModules>;
 
 // Implement our runtime API endpoints. This is just a bunch of proxying.
+// Implement our runtime API endpoints. This is just a bunch of proxying.
 impl_runtime_apis! {
 	impl runtime_api::Core<Block> for Runtime {
 		fn version() -> RuntimeVersion {
 			VERSION
 		}
 
-		fn authorities() -> Vec<AuthorityId> {
-			Consensus::authorities()
-		}
-
 		fn execute_block(block: Block) {
 			Executive::execute_block(block)
 		}
 
-		fn initialise_block(header: &<Block as BlockT>::Header) {
-			Executive::initialise_block(header)
+		fn initialize_block(header: &<Block as BlockT>::Header) {
+			Executive::initialize_block(header)
+		}
+
+		fn authorities() -> Vec<AuthorityId> {
+			panic!("Deprecated, please use `AuthoritiesApi`.")
 		}
 	}
 
@@ -282,8 +283,8 @@ impl_runtime_apis! {
 			Executive::apply_extrinsic(extrinsic)
 		}
 
-		fn finalise_block() -> <Block as BlockT>::Header {
-			Executive::finalise_block()
+		fn finalize_block() -> <Block as BlockT>::Header {
+			Executive::finalize_block()
 		}
 
 		fn inherent_extrinsics(data: InherentData) -> Vec<<Block as BlockT>::Extrinsic> {
@@ -314,6 +315,12 @@ impl_runtime_apis! {
 	impl offchain_primitives::OffchainWorkerApi<Block> for Runtime {
 		fn offchain_worker(n: NumberFor<Block>) {
 			Executive::offchain_worker(n)
+		}
+	}
+
+	impl consensus_authorities::AuthoritiesApi<Block> for Runtime {
+		fn authorities() -> Vec<AuthorityId> {
+			Consensus::authorities()
 		}
 	}
 }

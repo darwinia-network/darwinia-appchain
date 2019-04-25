@@ -1,7 +1,7 @@
 use primitives::{ed25519, sr25519, Pair};
 use node_template_runtime::{
 	AccountId, GenesisConfig, ConsensusConfig, TimestampConfig, BalancesConfig,
-	SudoConfig, IndicesConfig, Erc20Config,
+	SudoConfig, IndicesConfig,
 };
 use substrate_service;
 
@@ -114,13 +114,6 @@ fn testnet_genesis(initial_authorities: Vec<AuthorityId>, endowed_accounts: Vec<
 		}),
 		sudo: Some(SudoConfig {
 			key: root_key,
-		}),
-		erc20: Some(Erc20Config {
-			owner: account_key("Alice"),
-			// setting total supply of tokens to 21M because `Satoshi` said so
-			total_supply: 21000000,
-			name: "Evolution Land Global Token".as_bytes().into(),
-			ticker: "RING".as_bytes().into(),
 		}),
 	}
 }
